@@ -5,13 +5,13 @@ import App from './App';
 import registerServiceWorker from './registerServiceWorker';
 
 import { createStore } from 'redux';
-import { counter } from './index.redux'
+import { counter, addGun, removeGun } from './index.redux'
 // 1.通过 reducer 创建一个 store
 const store = createStore(counter)
 
 function render(){
   // 将 store 传递给 app 组件
-  ReactDOM.render(<App store={store} />, document.getElementById('root'));
+  ReactDOM.render(<App store={store} addGun={addGun} removeGun={removeGun} />, document.getElementById('root'));
 }
 
 render()
