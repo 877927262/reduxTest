@@ -7,25 +7,12 @@ import reducers from './reducer'
 import { Provider } from 'react-redux'
 import thunk from 'redux-thunk'
 
-import { BrowserRouter, Route, Link, Redirect, Switch } from 'react-router-dom'
+import { BrowserRouter, Route, Redirect, Switch } from 'react-router-dom'
 
 import Auth from './auth'
 import Dashbord from './Dashboard'
 
 const store = createStore(reducers,applyMiddleware(thunk))
-
-
-
-class Test extends React.Component {
-  constructor(props){
-    super(props);
-  }
-
-  render(){
-    console.log(this.props);
-    return <h1>测试组件</h1>
-  }
-}
 
 ReactDOM.render(
   <Provider store={store}>
