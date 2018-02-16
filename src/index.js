@@ -3,20 +3,45 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import registerServiceWorker from './registerServiceWorker';
-//使用 applyMiddleware 支持异步
-// 引入 applyMiddleware
 import { createStore, applyMiddleware } from 'redux';
 import { counter } from './index.redux'
-//1.从 react-redux 中引入 Provider
 import { Provider } from 'react-redux'
 import thunk from 'redux-thunk'
-// 通过 reducer 创建一个 store , 2.并且使用异步中间件
+
+import { BrowserRouter, Route, Link } from 'react-router-dom'
+
+
 const store = createStore(counter,applyMiddleware(thunk))
 
+function Erying(){
+  return <h2>二营</h2>
+}
+
+function Qibinglian(){
+  return <h2>骑兵连</h2>
+}
+
 ReactDOM.render(
-  // 2.使用 Provider 包裹 app 组件，并且将 store 传递给 provider
   <Provider store={store}>
-    <App/>
+    <BrowserRouter>
+      <div>
+        <ul>
+          <li>
+            <Link to='/'>一营</Link>
+          </li>
+          <li>
+            <Link to='/erying'>二营</Link>
+          </li>
+          <li>
+            <Link to='/qibinglian'>骑兵连</Link>
+          </li>
+        </ul>
+        {/*使用 exact 进行路由的完全匹配*/} 
+        <Route path='/' exact component={App}></Route>
+        <Route path='/erying' component={Erying}></Route>
+        <Route path='/qibinglian' component={Qibinglian}></Route>
+      </div>
+    </BrowserRouter>
   </Provider>
   , document.getElementById('root'));
 
