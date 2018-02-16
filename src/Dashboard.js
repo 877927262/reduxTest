@@ -27,7 +27,7 @@ class Dashbord extends React.Component {
         {this.props.isAuth ? <button onClick={this.props.logout}>注销</button> : null}
         <ul>
           <li>
-            <Link to={`${match.url}/`}>一营</Link>
+            <Link to={`${match.url}`}>一营</Link>
           </li>
           <li>
             <Link to={`${match.url}/erying`}>二营</Link>
@@ -36,7 +36,7 @@ class Dashbord extends React.Component {
             <Link to={`${match.url}/qibinglian`}>骑兵连</Link>
           </li>
         </ul>
-        <Route path={`${match.url}/`} exact component={App}></Route>
+        <Route path={`${match.url}`} exact component={App}></Route>
         <Route path={`${match.url}/erying`} component={Erying}></Route>
         <Route path={`${match.url}/qibinglian`} component={Qibinglian}></Route>
       </div>
