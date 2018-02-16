@@ -5,7 +5,7 @@ export function auth(state={isAuth:false,user:'李云龙'},action) {
   switch (action.type) {
     case LOGIN:
       return {...state, isAuth:true}
-    case LOGIN:
+    case LOGOUT:
       return {...state, isAuth:false}
     default:
       return state
