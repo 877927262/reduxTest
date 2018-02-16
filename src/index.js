@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import registerServiceWorker from './registerServiceWorker';
 import { createStore, applyMiddleware } from 'redux';
-import { counter } from './index.redux'
+import reducers from './reducer'
 import { Provider } from 'react-redux'
 import thunk from 'redux-thunk'
 
@@ -12,7 +12,7 @@ import { BrowserRouter, Route, Link, Redirect, Switch } from 'react-router-dom'
 import Auth from './auth'
 import Dashbord from './Dashboard'
 
-const store = createStore(counter,applyMiddleware(thunk))
+const store = createStore(reducers,applyMiddleware(thunk))
 
 
 
